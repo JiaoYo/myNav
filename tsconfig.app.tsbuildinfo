@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/utils/canvas.ts","./src/utils/index.ts"],"version":"5.6.3"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/pages/v3admin/index.tsx","./src/pages/blog/index.tsx","./src/pages/home/index.tsx","./src/routers/index.tsx","./src/utils/canvas copy.ts","./src/utils/canvas.ts","./src/utils/index.ts"],"version":"5.6.3"}

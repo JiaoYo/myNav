@@ -1,7 +1,7 @@
 import { renderCanvas } from '../../utils/canvas';
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '@/assets/styles/app.css'
+import '@/assets/styles/home.css'
 export default function home() {
   const navigate = useNavigate()
   useEffect(() => {
