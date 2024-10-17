@@ -2,6 +2,7 @@ import { Navigate, useRoutes } from 'react-router-dom'
 import Home from '../pages/home'
 import Blog from '../pages/blog'
 import V3Admin from '../pages/V3admin'
+import Methods from '../pages/methods'
 export const rootRouter = [
   {
     path: "/",
@@ -31,7 +32,16 @@ export const rootRouter = [
     meta: {
       requiresAuth: false,
       title: "V3Admin",
-      key: "vV3Admin"
+      key: "V3Admin"
+    }
+  },
+  {
+    path: "/Methods",
+    element: <Methods />,
+    meta: {
+      requiresAuth: false,
+      title: "Methods",
+      key: "Methods"
     }
   },
   {
