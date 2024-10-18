@@ -4,7 +4,7 @@ import AdminIcon from '../assets/svg/nav-admin.svg'
 import ToolsIcon from '../assets/svg/nav-tools.svg'
 import Return from '../assets/svg/nav-return.svg'
 import SvgIcon from './svg/svg'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 export default function navbar() {
   const navigate = useNavigate()
@@ -12,12 +12,25 @@ export default function navbar() {
   const targgle = () => {
     setShow(!show)
   }
-
+  useEffect(() => {
+    const listener = () => {
+      if (document.activeElement?.tagName === 'IFRAME') {
+        if (show) setShow(false);
+      }
+      window.removeEventListener('blur', listener);
+    };
+    if (show) {
+      window.addEventListener('blur', listener);
+    }
+    return () => {
+      window.removeEventListener('blur', listener);
+    };
+  }, [show]);
   return (
     <div style={{
       height: '40px',
       position: 'fixed',
-      borderRadius: show ? '20px' : '50%',
+      borderRadius: '20px',
       bottom: '20px',
       right: '20px',
       display: 'flex',
@@ -25,7 +38,7 @@ export default function navbar() {
       zIndex: 999,
       transition: 'all 0.3s',
       backgroundColor: 'transparent',
-      boxShadow: '0 0 10px rgba(255, 255, 255, 0.4)',
+      // boxShadow: '0 0 10px rgba(255, 255, 255, 0.4)',
     }}>
       <div style={{
         color: '#fff',
@@ -37,10 +50,10 @@ export default function navbar() {
         alignItems: 'center',
         justifyContent: 'space-around',
       }}>
-        <SvgIcon onClick={() => navigate('/')} src={Return} width={'30px'} height={'30px'}></SvgIcon>
-        <SvgIcon onClick={() => navigate('/blog')} src={BlogIcon} width={'30px'} height={'30px'}></SvgIcon>
-        <SvgIcon onClick={() => navigate('/V3admin')} src={AdminIcon} width={'30px'} height={'30px'}></SvgIcon>
-        <SvgIcon onClick={() => navigate('/Methods')} src={ToolsIcon} width={'30px'} height={'30px'}></SvgIcon>
+        <SvgIcon onClick={() => { navigate('/'); setShow(!show) }} src={Return} width={'30px'} height={'30px'}></SvgIcon>
+        <SvgIcon onClick={() => { navigate('/blog'); setShow(!show) }} src={BlogIcon} width={'30px'} height={'30px'}></SvgIcon>
+        <SvgIcon onClick={() => { navigate('/V3admin'); setShow(!show) }} src={AdminIcon} width={'30px'} height={'30px'}></SvgIcon>
+        <SvgIcon onClick={() => { navigate('/Methods'); setShow(!show) }} src={ToolsIcon} width={'30px'} height={'30px'}></SvgIcon>
       </div>
       <SvgIcon onClick={() => targgle()} src={SettingIcon} width={'40px'} height={'40px'}></SvgIcon>
     </div>
