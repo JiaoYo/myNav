@@ -2,7 +2,7 @@ import SettingIcon from '../assets/svg/nav-setting.svg'
 import BlogIcon from '../assets/svg/nav-blog.svg'
 import AdminIcon from '../assets/svg/nav-admin.svg'
 import ToolsIcon from '../assets/svg/nav-tools.svg'
-import Return from '../assets/svg/nav-return.svg'
+import Home from '../assets/svg/nav-home.svg'
 import SvgIcon from './svg/svg'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -50,7 +50,7 @@ export default function navbar() {
         alignItems: 'center',
         justifyContent: 'space-around',
       }}>
-        <SvgIcon onClick={() => { navigate('/'); setShow(!show) }} src={Return} width={'30px'} height={'30px'}></SvgIcon>
+        <SvgIcon onClick={() => { navigate('/'); setShow(!show) }} src={Home} width={'30px'} height={'30px'}></SvgIcon>
         <SvgIcon onClick={() => { navigate('/blog'); setShow(!show) }} src={BlogIcon} width={'30px'} height={'30px'}></SvgIcon>
         <SvgIcon onClick={() => { navigate('/V3admin'); setShow(!show) }} src={AdminIcon} width={'30px'} height={'30px'}></SvgIcon>
         <SvgIcon onClick={() => { navigate('/Methods'); setShow(!show) }} src={ToolsIcon} width={'30px'} height={'30px'}></SvgIcon>
