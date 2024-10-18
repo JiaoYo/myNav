@@ -1,4 +1,4 @@
-import { renderCanvas } from '../../utils/canvas';
+import { renderCanvas } from '@/utils/canvas';
 import { useEffect } from 'react'
 import '@/assets/styles/home.css'
 export default function home() {
